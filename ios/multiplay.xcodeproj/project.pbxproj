@@ -12,6 +12,13 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		665FE9122BDCD0E200CEF4C8 /* yofitofi.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 665FE90C2BDCD0E200CEF4C8 /* yofitofi.mp3 */; };
+		665FE9132BDCD0E200CEF4C8 /* kolhakavod.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 665FE90D2BDCD0E200CEF4C8 /* kolhakavod.mp3 */; };
+		665FE9142BDCD0E200CEF4C8 /* yafemeod.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 665FE90E2BDCD0E200CEF4C8 /* yafemeod.mp3 */; };
+		665FE9152BDCD0E200CEF4C8 /* yofi.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 665FE90F2BDCD0E200CEF4C8 /* yofi.mp3 */; };
+		665FE9162BDCD0E200CEF4C8 /* metsuyan.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 665FE9102BDCD0E200CEF4C8 /* metsuyan.mp3 */; };
+		665FE9172BDCD0E200CEF4C8 /* yafemeod2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 665FE9112BDCD0E200CEF4C8 /* yafemeod2.mp3 */; };
+		665FE9192BDD6BAF00CEF4C8 /* oops.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 665FE9182BDD6BAF00CEF4C8 /* oops.mp3 */; };
 		7699B88040F8A987B510C191 /* libPods-multiplay-multiplayTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-multiplay-multiplayTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -42,6 +49,13 @@
 		5709B34CF0A7D63546082F79 /* Pods-multiplay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-multiplay.release.xcconfig"; path = "Target Support Files/Pods-multiplay/Pods-multiplay.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-multiplay-multiplayTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-multiplay-multiplayTests.debug.xcconfig"; path = "Target Support Files/Pods-multiplay-multiplayTests/Pods-multiplay-multiplayTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-multiplay.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-multiplay.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		665FE90C2BDCD0E200CEF4C8 /* yofitofi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = yofitofi.mp3; path = ../android/app/src/main/res/raw/yofitofi.mp3; sourceTree = "<group>"; };
+		665FE90D2BDCD0E200CEF4C8 /* kolhakavod.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = kolhakavod.mp3; path = ../android/app/src/main/res/raw/kolhakavod.mp3; sourceTree = "<group>"; };
+		665FE90E2BDCD0E200CEF4C8 /* yafemeod.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = yafemeod.mp3; path = ../android/app/src/main/res/raw/yafemeod.mp3; sourceTree = "<group>"; };
+		665FE90F2BDCD0E200CEF4C8 /* yofi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = yofi.mp3; path = ../android/app/src/main/res/raw/yofi.mp3; sourceTree = "<group>"; };
+		665FE9102BDCD0E200CEF4C8 /* metsuyan.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = metsuyan.mp3; path = ../android/app/src/main/res/raw/metsuyan.mp3; sourceTree = "<group>"; };
+		665FE9112BDCD0E200CEF4C8 /* yafemeod2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = yafemeod2.mp3; path = ../android/app/src/main/res/raw/yafemeod2.mp3; sourceTree = "<group>"; };
+		665FE9182BDD6BAF00CEF4C8 /* oops.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = oops.mp3; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = multiplay/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-multiplay-multiplayTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-multiplay-multiplayTests.release.xcconfig"; path = "Target Support Files/Pods-multiplay-multiplayTests/Pods-multiplay-multiplayTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -118,6 +132,13 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				665FE9182BDD6BAF00CEF4C8 /* oops.mp3 */,
+				665FE90D2BDCD0E200CEF4C8 /* kolhakavod.mp3 */,
+				665FE9102BDCD0E200CEF4C8 /* metsuyan.mp3 */,
+				665FE90E2BDCD0E200CEF4C8 /* yafemeod.mp3 */,
+				665FE9112BDCD0E200CEF4C8 /* yafemeod2.mp3 */,
+				665FE90F2BDCD0E200CEF4C8 /* yofi.mp3 */,
+				665FE90C2BDCD0E200CEF4C8 /* yofitofi.mp3 */,
 				13B07FAE1A68108700A75B9A /* multiplay */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* multiplayTests */,
@@ -243,8 +264,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				665FE9132BDCD0E200CEF4C8 /* kolhakavod.mp3 in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				665FE9192BDD6BAF00CEF4C8 /* oops.mp3 in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				665FE9162BDCD0E200CEF4C8 /* metsuyan.mp3 in Resources */,
+				665FE9142BDCD0E200CEF4C8 /* yafemeod.mp3 in Resources */,
+				665FE9122BDCD0E200CEF4C8 /* yofitofi.mp3 in Resources */,
+				665FE9152BDCD0E200CEF4C8 /* yofi.mp3 in Resources */,
+				665FE9172BDCD0E200CEF4C8 /* yafemeod2.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -586,10 +614,7 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
@@ -661,10 +686,7 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;

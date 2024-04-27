@@ -1,24 +1,29 @@
+import {Platform} from 'react-native';
 import Sound from 'react-native-sound';
 
 // Enable playback in silence mode
 Sound.setCategory('Playback');
-
+const isIos: boolean = Platform.OS === 'ios';
+const soundFileExtension = isIos ? '.mp3' : '';
 const arrayOfPositiveSounds = [
-  'kolhakavod',
-  'metsuyan',
-  'yafemeod',
-  'yafemeod2',
-  'yofi',
-  'yofitofi',
+  `kolhakavod${soundFileExtension}`,
+  `metsuyan${soundFileExtension}`,
+  `yafemeod${soundFileExtension}`,
+  `yafemeod2${soundFileExtension}`,
+  `yofi${soundFileExtension}`,
+  `yofitofi${soundFileExtension}`,
 ];
 
+const badSoundFile = `oops${soundFileExtension}`;
+
 // Function to play a random sound
-export function play() {
+export function play(isGood: boolean = true) {
   // Get random sound
-  const randomSound =
-    arrayOfPositiveSounds[
-      Math.floor(Math.random() * arrayOfPositiveSounds.length)
-    ];
+  const randomSound = isGood
+    ? arrayOfPositiveSounds[
+        Math.floor(Math.random() * arrayOfPositiveSounds.length)
+      ]
+    : badSoundFile;
   const sound = new Sound(randomSound, Sound.MAIN_BUNDLE, error => {
     if (error) {
       console.log('failed to load the sound', error);

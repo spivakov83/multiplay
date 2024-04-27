@@ -15,10 +15,7 @@ import {
   View,
 } from 'react-native';
 
-import {
-  getNumbersForExerciseResults,
-  getRandomInt,
-} from './common/util-functions';
+import {getRandomInt} from './common/util-functions';
 import {Answer} from './components/Exercise/Answer';
 import {useAnswers} from './hooks/useAnswers';
 
@@ -42,8 +39,10 @@ function App(): React.JSX.Element {
   function handleSubmitAnswer() {
     if (selectedIndex > -1) {
       if (isAnswerCorrect()) {
-        play();
+        play(true);
         renderNewQuestion();
+      } else {
+        play(false);
       }
     }
   }
@@ -79,7 +78,13 @@ function App(): React.JSX.Element {
           ]}
           onPress={handleSubmitAnswer}
           disabled={selectedIndex === -1}>
-          <Text style={styles.submitButtonText}>בדוק</Text>
+          <Text
+            style={[
+              styles.submitButtonText,
+              selectedIndex == -1 ? styles.disabledText : {},
+            ]}>
+            בדוק
+          </Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
@@ -100,12 +105,15 @@ const styles = StyleSheet.create({
     borderRadius: 10, // round the corners
   },
   disabledButton: {
-    backgroundColor: '#D3D3D3', // light gray background
+    backgroundColor: '#BEBEBE', // light gray background
   },
   submitButtonText: {
     color: 'black', // white text
     fontSize: 50,
     fontWeight: 'bold',
+  },
+  disabledText: {
+    color: '#454647', // replace with your desired disabled color
   },
   answersContainer: {
     backgroundColor: '#673AB7', // deep orange background
