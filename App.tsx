@@ -5,113 +5,173 @@
  * @format
  */
 
-import React from 'react';
-import type {PropsWithChildren} from 'react';
+import React, {useCallback, useState} from 'react';
 import {
+  Animated,
   SafeAreaView,
-  ScrollView,
-  StatusBar,
   StyleSheet,
   Text,
-  useColorScheme,
+  TouchableOpacity,
   View,
 } from 'react-native';
 
 import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+  getNumbersForExerciseResults,
+  getRandomInt,
+} from './common/util-functions';
+import {Answer} from './components/Exercise/Answer';
+import {useAnswers} from './hooks/useAnswers';
 
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
+import {play} from './common/sound-player/sound';
 
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
+const randomNumber1 = getRandomInt(1, 10);
+const randomNumber2 = getRandomInt(1, 10);
 
 function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
+  const [number1, setNumber1] = useState(randomNumber1);
+  const [number2, setNumber2] = useState(randomNumber2);
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
+  const answers = useAnswers(number1, number2);
 
+  const [selectedIndex, setSelectedIndex] = useState(-1);
+
+  function isAnswerCorrect() {
+    return answers[selectedIndex] === number1 * number2;
+  }
+
+  function handleSubmitAnswer() {
+    if (selectedIndex > -1) {
+      if (isAnswerCorrect()) {
+        play();
+        renderNewQuestion();
+      }
+    }
+  }
+  function renderNewQuestion() {
+    setSelectedIndex(-1);
+    setNumber1(getRandomInt(1, 10));
+    setNumber2(getRandomInt(1, 10));
+  }
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.questionContainer}>
+        <Text
+          style={
+            styles.questionNumbers
+          }>{`${number1} \u00D7 ${number2} ?`}</Text>
+      </View>
+      <View style={styles.answersContainer}>
+        {answers.map((answer, index) => (
+          <Answer
+            number={answer}
+            key={answer}
+            index={index}
+            selectedIndex={selectedIndex}
+            setSelectedIndex={setSelectedIndex}
+          />
+        ))}
+      </View>
+      <View style={styles.submitContainer}>
+        <TouchableOpacity
+          style={[
+            styles.submitButton,
+            selectedIndex === -1 ? styles.disabledButton : null,
+          ]}
+          onPress={handleSubmitAnswer}
+          disabled={selectedIndex === -1}>
+          <Text style={styles.submitButtonText}>בדוק</Text>
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
+  submitButton: {
+    width: '100%', // fill the width of its container
+    height: '100%', // fill the height of its container
+    backgroundColor: '#4CAF50', // orange background
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 10, // round the corners
   },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
+  disabledButton: {
+    backgroundColor: '#D3D3D3', // light gray background
   },
-  highlight: {
-    fontWeight: '700',
+  submitButtonText: {
+    color: 'black', // white text
+    fontSize: 50,
+    fontWeight: 'bold',
+  },
+  answersContainer: {
+    backgroundColor: '#673AB7', // deep orange background
+    padding: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
+  lottieContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  lottie: {
+    width: 200,
+    height: 200,
+  },
+  questionContainer: {
+    backgroundColor: '#FFC107', // bright yellow background
+    padding: 20,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  questionNumbers: {
+    fontSize: 80,
+    fontWeight: 'bold',
+    color: '#673AB7', // deep purple text
+  },
+  backgroundStyle: {
+    backgroundColor: '#4CAF50', // bright green background
+    padding: 20,
+    borderRadius: 15,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  submitContainer: {
+    flex: 1,
+    backgroundColor: '#4CAF50',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 
