@@ -49,6 +49,7 @@ const styles = StyleSheet.create({
   answerText: {
     fontSize: 60, // keep the font size consistent with Question.tsx
     color: 'black', // change the text color to a bright green
+    fontWeight: 'bold',
   },
   checkmarkStyle: {
     position: 'absolute',

@@ -20,13 +20,14 @@ export function MultipleChoice({setQuestionsCount}: any) {
   }
 
   function handleSubmitAnswer() {
-    setQuestionsCount((prev: any) => prev + 1);
     if (selectedIndex > -1) {
       if (isAnswerCorrect()) {
         playQuestionFeedback(true);
+        setQuestionsCount((prev: any) => prev + 1);
         renderNewQuestion();
       } else {
         playQuestionFeedback(false);
+        setSelectedIndex(-1);
       }
     }
   }

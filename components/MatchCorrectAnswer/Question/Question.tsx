@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
   questionNumbers: {
     fontSize: 50, // larger font size
     color: '#0000FF', // bright blue text
+    fontWeight: 'bold',
   },
   checkmarkStyle: {
     position: 'absolute',

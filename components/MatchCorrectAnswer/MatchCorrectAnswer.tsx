@@ -12,7 +12,7 @@ import {
   successSound,
 } from '../../common/sound-player/sound';
 
-const ITEMS_COUNT = 5;
+const ITEMS_COUNT = 4;
 
 export function MatchCorrectAnswer({setQuestionsCount}: any) {
   const [questions] = useState<IMatchSelectionQuestion[]>(
@@ -49,6 +49,10 @@ export function MatchCorrectAnswer({setQuestionsCount}: any) {
         selectedQuestionIndex,
       ]);
       setCorrectAnswersIndexes([...correctAnswersIndexes, selectedAnswerIndex]);
+    } else {
+      playQuestionFeedback(false);
+      setSelectedAnswerIndex(-1);
+      setSelectedQuestionIndex(-1);
     }
   }, [selectedAnswerIndex, selectedQuestionIndex]);
 
@@ -132,7 +136,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    height: '20%',
+    height: '25%',
   },
   submitButton: {
     width: '100%', // fill the width of its container

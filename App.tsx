@@ -12,10 +12,10 @@ import {MultipleChoice} from './components/MultipleChoice/MultipleChoice';
 import {MatchCorrectAnswer} from './components/MatchCorrectAnswer';
 
 function App(): React.JSX.Element {
-  const [questionsCount, setQuestionsCount] = useState(0);
+  const [questionsCount, setQuestionsCount] = useState(1);
   return (
     <SafeAreaView style={styles.container}>
-      {questionsCount === 0 || questionsCount % 5 !== 0 ? (
+      {questionsCount % 5 !== 0 ? (
         <MultipleChoice setQuestionsCount={setQuestionsCount} />
       ) : (
         <MatchCorrectAnswer setQuestionsCount={setQuestionsCount} />
