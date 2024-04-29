@@ -74,13 +74,27 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
+
+    def versionPropsFile = file('version.properties')
+    def Properties versionProps = new Properties()
+    versionProps.load(new FileInputStream(versionPropsFile))
+    def versionCodeNameKey = 'VERSION_CODE'
+    def versionBuildNumKey = 'BUILD_NUM'
+    def currVersionCode = (versionProps[versionCodeNameKey]?: '0').toInteger()
+    def currBuildNum = (versionProps[versionBuildNumKey]?: '0').toInteger()
+    def code = currVersionCode + 1
+    def build_num = currBuildNum + 1
+    versionProps[versionCodeNameKey] = code.toString()
+    versionProps[versionBuildNumKey] = build_num.toString()
+    versionProps.store(versionPropsFile.newWriter(), null)
+
     namespace "com.multiplay"
     defaultConfig {
         applicationId "com.multiplay"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode code
+        versionName '1.0.' + build_num.toString()
     }
     signingConfigs {
         debug {
