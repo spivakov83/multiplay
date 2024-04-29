@@ -1,4 +1,4 @@
-package com.multiplay
+package com.multiplayapp
 
 import android.app.Application
 import com.facebook.react.PackageList

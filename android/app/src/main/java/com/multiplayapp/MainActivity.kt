@@ -1,4 +1,4 @@
-package com.multiplay
+package com.multiplayapp
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate
