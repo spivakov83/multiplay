@@ -51,9 +51,9 @@ export function MatchCorrectAnswer({setQuestionsCount}: any) {
       setCorrectAnswersIndexes([...correctAnswersIndexes, selectedAnswerIndex]);
     } else {
       playQuestionFeedback(false);
-      setSelectedAnswerIndex(-1);
-      setSelectedQuestionIndex(-1);
     }
+    setSelectedAnswerIndex(-1);
+    setSelectedQuestionIndex(-1);
   }, [selectedAnswerIndex, selectedQuestionIndex]);
 
   function handleGoOnBtnPress() {
