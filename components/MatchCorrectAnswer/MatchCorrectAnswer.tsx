@@ -7,7 +7,10 @@ import {
   getAnswersResultForQuestionsArray,
   getQuestionsForMatchCorrectAnswers,
 } from '../../common/util-functions';
-import {play} from '../../common/sound-player/sound';
+import {
+  playQuestionFeedback,
+  successSound,
+} from '../../common/sound-player/sound';
 
 const ITEMS_COUNT = 5;
 
@@ -40,6 +43,7 @@ export function MatchCorrectAnswer({setQuestionsCount}: any) {
       questions[selectedQuestionIndex].number1 *
         questions[selectedQuestionIndex].number2
     ) {
+      successSound();
       setCorrectQuestionsIndexes([
         ...correctQuestionsIndexes,
         selectedQuestionIndex,
@@ -49,7 +53,7 @@ export function MatchCorrectAnswer({setQuestionsCount}: any) {
   }, [selectedAnswerIndex, selectedQuestionIndex]);
 
   function handleGoOnBtnPress() {
-    play(true);
+    playQuestionFeedback(true);
     setQuestionsCount((prev: any) => prev + 1);
   }
 

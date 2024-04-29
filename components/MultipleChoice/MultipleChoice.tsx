@@ -1,6 +1,6 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {getRandomInt} from '../../common/util-functions';
-import {play} from '../../common/sound-player/sound';
+import {playQuestionFeedback} from '../../common/sound-player/sound';
 import {useAnswers} from '../../hooks/useAnswers';
 import {useState} from 'react';
 import {Answer} from './Answer';
@@ -23,10 +23,10 @@ export function MultipleChoice({setQuestionsCount}: any) {
     setQuestionsCount((prev: any) => prev + 1);
     if (selectedIndex > -1) {
       if (isAnswerCorrect()) {
-        play(true);
+        playQuestionFeedback(true);
         renderNewQuestion();
       } else {
-        play(false);
+        playQuestionFeedback(false);
       }
     }
   }

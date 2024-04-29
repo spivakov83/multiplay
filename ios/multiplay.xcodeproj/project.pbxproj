@@ -19,6 +19,8 @@
 		665FE9162BDCD0E200CEF4C8 /* metsuyan.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 665FE9102BDCD0E200CEF4C8 /* metsuyan.mp3 */; };
 		665FE9172BDCD0E200CEF4C8 /* yafemeod2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 665FE9112BDCD0E200CEF4C8 /* yafemeod2.mp3 */; };
 		665FE9192BDD6BAF00CEF4C8 /* oops.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 665FE9182BDD6BAF00CEF4C8 /* oops.mp3 */; };
+		66A6F6BE2BDF7E5000C5BA6E /* tap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 66A6F6BD2BDF7E5000C5BA6E /* tap.mp3 */; };
+		66A6F6C02BDF7F7A00C5BA6E /* success.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 66A6F6BF2BDF7F7A00C5BA6E /* success.mp3 */; };
 		7699B88040F8A987B510C191 /* libPods-multiplay-multiplayTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-multiplay-multiplayTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -56,6 +58,8 @@
 		665FE9102BDCD0E200CEF4C8 /* metsuyan.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = metsuyan.mp3; path = ../android/app/src/main/res/raw/metsuyan.mp3; sourceTree = "<group>"; };
 		665FE9112BDCD0E200CEF4C8 /* yafemeod2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = yafemeod2.mp3; path = ../android/app/src/main/res/raw/yafemeod2.mp3; sourceTree = "<group>"; };
 		665FE9182BDD6BAF00CEF4C8 /* oops.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = oops.mp3; sourceTree = "<group>"; };
+		66A6F6BD2BDF7E5000C5BA6E /* tap.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tap.mp3; sourceTree = "<group>"; };
+		66A6F6BF2BDF7F7A00C5BA6E /* success.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = success.mp3; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = multiplay/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-multiplay-multiplayTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-multiplay-multiplayTests.release.xcconfig"; path = "Target Support Files/Pods-multiplay-multiplayTests/Pods-multiplay-multiplayTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -132,6 +136,8 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				66A6F6BF2BDF7F7A00C5BA6E /* success.mp3 */,
+				66A6F6BD2BDF7E5000C5BA6E /* tap.mp3 */,
 				665FE9182BDD6BAF00CEF4C8 /* oops.mp3 */,
 				665FE90D2BDCD0E200CEF4C8 /* kolhakavod.mp3 */,
 				665FE9102BDCD0E200CEF4C8 /* metsuyan.mp3 */,
@@ -268,8 +274,10 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				665FE9192BDD6BAF00CEF4C8 /* oops.mp3 in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				66A6F6C02BDF7F7A00C5BA6E /* success.mp3 in Resources */,
 				665FE9162BDCD0E200CEF4C8 /* metsuyan.mp3 in Resources */,
 				665FE9142BDCD0E200CEF4C8 /* yafemeod.mp3 in Resources */,
+				66A6F6BE2BDF7E5000C5BA6E /* tap.mp3 in Resources */,
 				665FE9122BDCD0E200CEF4C8 /* yofitofi.mp3 in Resources */,
 				665FE9152BDCD0E200CEF4C8 /* yofi.mp3 in Resources */,
 				665FE9172BDCD0E200CEF4C8 /* yafemeod2.mp3 in Resources */,
@@ -614,10 +622,7 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
@@ -689,10 +694,7 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;

@@ -15,7 +15,7 @@ function App(): React.JSX.Element {
   const [questionsCount, setQuestionsCount] = useState(0);
   return (
     <SafeAreaView style={styles.container}>
-      {questionsCount % 5 !== 0 ? (
+      {questionsCount === 0 || questionsCount % 5 !== 0 ? (
         <MultipleChoice setQuestionsCount={setQuestionsCount} />
       ) : (
         <MatchCorrectAnswer setQuestionsCount={setQuestionsCount} />

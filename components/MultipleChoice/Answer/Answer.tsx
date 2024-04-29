@@ -1,8 +1,10 @@
 import {memo, useMemo} from 'react';
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {tapSound} from '../../../common/sound-player/sound';
 
 export function Answer({number, index, selectedIndex, setSelectedIndex}: any) {
   function handlePress() {
+    tapSound();
     setSelectedIndex(index);
   }
   return (

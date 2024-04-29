@@ -17,7 +17,7 @@ const arrayOfPositiveSounds = [
 const badSoundFile = `oops${soundFileExtension}`;
 
 // Function to play a random sound
-export function play(isGood: boolean = true) {
+export function playQuestionFeedback(isGood: boolean = true) {
   // Get random sound
   const randomSound = isGood
     ? arrayOfPositiveSounds[
@@ -30,6 +30,39 @@ export function play(isGood: boolean = true) {
       return;
     }
     // Play the sound with an onEnd callback
+    sound.play(success => {
+      if (success) {
+        sound.release();
+      } else {
+        console.log('playback failed due to audio decoding errors');
+      }
+    });
+  });
+}
+
+export function tapSound() {
+  const tapSoundFile = `tap${soundFileExtension}`;
+  const sound = new Sound(tapSoundFile, Sound.MAIN_BUNDLE, error => {
+    if (error) {
+      console.log('failed to load the sound', error);
+      return;
+    }
+    sound.play(success => {
+      if (success) {
+        sound.release();
+      } else {
+        console.log('playback failed due to audio decoding errors');
+      }
+    });
+  });
+}
+export function successSound() {
+  const tapSoundFile = `success${soundFileExtension}`;
+  const sound = new Sound(tapSoundFile, Sound.MAIN_BUNDLE, error => {
+    if (error) {
+      console.log('failed to load the sound', error);
+      return;
+    }
     sound.play(success => {
       if (success) {
         sound.release();
